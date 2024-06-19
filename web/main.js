@@ -15,22 +15,28 @@
         mouseEl.style.top = mouseY+"px"
     }
     async function transitionPosition(x, y){
-        const mouseSpeed = 10
-        let iterations = ((x-mouseX)+(y-mouseY))/mouseSpeed
+        let debugNumber = Math.round(Math.random()*10)
+        console.log('Starting transition '+debugNumber)
+        let mouseSpeed = 10
+        let iterations = Math.floor(((x-mouseX)+(y-mouseY))/mouseSpeed)
 
-        for(let i = 0;i<iterations;i++){
+        for(let i = 0;i<iterations-3;i++){
             mouseX += (x-mouseX)/mouseSpeed
             mouseY += (y-mouseY)/mouseSpeed
             updateMouse()
-            await sleep(1000/60)
+            await sleep(1000/120)
         }
+
+        console.log('Ending transition '+debugNumber)
     }
+    
 
 
     const stepEl = q("#step")
     stepEl.textContent = "Step 1: Type in your question."
 
-    await transitionPosition(searchEl.getBoundingClientRect().left+(searchEl.getBoundingClientRect().width/2)-20, searchEl.getBoundingClientRect().top+20)
+    const searchRect = searchEl.getBoundingClientRect()
+    await transitionPosition(searchRect.left+(searchRect.width/2)-20, searchRect.top+20)
     searchEl.focus()
     
     for(let i = 0;i<searchText.length;i++){
@@ -40,7 +46,8 @@
 
     const searchButtonEl = q("#searchButton")
     stepEl.textContent = "Step 2: Click the search button."
-    await transitionPosition(searchButtonEl.getBoundingClientRect().left, searchButtonEl.getBoundingClientRect().top)
+    const searchButtonRect = searchButtonEl.getBoundingClientRect()
+    await transitionPosition(searchButtonRect.left+searchButtonRect.width/2, searchButtonRect.top+searchButtonRect.height/2)
 
 
     await sleep(2000)
