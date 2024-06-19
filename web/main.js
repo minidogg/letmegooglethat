@@ -19,6 +19,8 @@
         console.log('Starting transition '+debugNumber)
         let mouseSpeed = 10
         let iterations = Math.round(((x-mouseX)+(y-mouseY))/mouseSpeed)
+        console.log((x-mouseX), (y-mouseY), mouseSpeed)
+        console.log(iterations)
 
         for(let i = 0;i<iterations;i++){
             mouseX += (x-mouseX)/mouseSpeed
