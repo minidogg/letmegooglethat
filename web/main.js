@@ -70,6 +70,6 @@
     await sleep(2000)
     stepEl.textContent = "Come on... Was that really so hard?"
 
-    await sleep(100)
+    await sleep(300)
     if(searchText!=="")window.location.assign("https://google.com/search?q="+encodeURIComponent(searchText))
 })()
