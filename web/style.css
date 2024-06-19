@@ -1,0 +1,117 @@
+body{
+    margin:0;
+    background-color: white;
+}
+
+*{
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    color:black;
+}
+
+.logo {
+    height:12vh;
+    display: block;
+    margin:auto;
+    margin-top:30vh;
+}
+
+#searchBox{
+    all:unset;
+    background-color:transparent;
+    border: 2px solid #DFE1E5;
+    border-radius: 100vw;
+    padding:10px;
+    width:40vw;
+
+    display:block;
+    margin:auto;
+    margin-top:30px;
+}
+
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.input-icons i {
+    position: absolute;
+}
+
+.icon {
+    padding: 10px;
+    min-width: 40px;
+}
+
+.buttons{
+    width:fit-content;
+    height:fit-content;
+    display:block;
+    margin:auto;
+    margin-top:15px;
+}
+button{
+    all: unset;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    font-family: arial,sans-serif;
+    font-size: 14px;
+    margin: 11px 4px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    display: inline-block;
+}
+button:hover{
+    border: 1px solid #5f6368;
+
+}
+
+
+#step{
+    background-color: #4fe9f9;
+    color:#44446d;
+    width:10vw;
+    height:10vh;
+    padding:20px;
+    display:block;
+    margin:auto;
+    margin-top:10px;
+    text-align: center;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 600px) {
+    #searchBox{
+        width:80vw;
+    }
+    .logo{
+        height:9vh;
+        margin-top:10vh;
+    }
+    #step{
+        width:80vw;
+    }
+}
+
+
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+    body{
+        background-color: #202124;
+    }
+    *{
+        color:white;
+    }
+    button{
+        background-color: #303134;
+    }
+    #searchBox{
+        border: 2px solid #303134;
+    }
+}
+
