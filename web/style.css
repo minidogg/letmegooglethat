@@ -23,6 +23,7 @@ body{
     border-radius: 100vw;
     padding:10px;
     width:40vw;
+    height:15px;
 
     display:block;
     margin:auto;
@@ -66,7 +67,7 @@ button{
     user-select: none;
     display: inline-block;
 }
-button:hover{
+button:hover, button:focus{
     border: 1px solid #5f6368;
 
 }

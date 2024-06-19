@@ -3,9 +3,11 @@
     const queryParams = new URLSearchParams(window.location.search)
     const searchText = queryParams.get("q")
 
-    // make sure content is blank.
     const searchEl = q("#searchBox")
-    searchEl.value = ""
+    let searchVal = ""
+    setInterval(()=>{
+        searchEl.value = searchVal
+    },20)
 
     const mouseEl = q("#mouse")
     let mouseX = 0;
@@ -18,7 +20,7 @@
         let debugNumber = Math.round(Math.random()*1000)
         console.log('Starting transition '+debugNumber)
         let mouseSpeed = 10
-        let iterations = Math.round(((x-mouseX)+(y-mouseY))/mouseSpeed)
+        let iterations = Math.max(Math.abs(Math.round(((x-mouseX)+(y-mouseY))/mouseSpeed)), 20)
         console.log((x-mouseX), (y-mouseY), mouseSpeed)
         console.log(iterations)
 
@@ -44,7 +46,7 @@
     searchEl.focus()
     
     for(let i = 0;i<searchText.length;i++){
-        searchEl.value+=searchText[i]
+        searchVal+=searchText[i]
         await sleep(200)
     }
 
@@ -52,6 +54,7 @@
     stepEl.textContent = "Step 2: Click the search button."
     const searchButtonRect = searchButtonEl.getBoundingClientRect()
     await transitionPosition(searchButtonRect.left+searchButtonRect.width/2, searchButtonRect.top+searchButtonRect.height/2)
+    await sleep(50)
     searchButtonEl.focus()
 
 
