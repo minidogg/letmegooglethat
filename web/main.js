@@ -56,7 +56,7 @@
     
     for(let i = 0;i<searchText.length;i++){
         searchVal+=searchText[i]
-        await sleep(200)
+        await sleep(125)
     }
 
     const searchButtonEl = q("#searchButton")
