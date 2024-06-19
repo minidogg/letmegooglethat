@@ -3,7 +3,20 @@
     const queryParams = new URLSearchParams(window.location.search)
     const searchText = queryParams.get("q")
 
+    const stepEl = q("#step")
+    stepEl.textContent = "Step 1: Type in your question"
+
     const searchEl = q("#searchBox")
+
+    if(typeof(searchText)!=="string"){
+        stepEl.innerHTML = "Type in the question. Then copy the link from the button below <br><button>Copy URL</button>"
+        stepEl.q("button").onclick=()=>{
+            let url = window.location.host+"?q="+encodeURIComponent(searchEl.value)
+            window.navigator.clipboard.writeText(url)
+        }
+        return
+    }
+
     let searchVal = ""
     setInterval(()=>{
         searchEl.value = searchVal
@@ -18,11 +31,11 @@
     }
     async function transitionPosition(x, y){
         let debugNumber = Math.round(Math.random()*1000)
-        console.log('Starting transition '+debugNumber)
+        // console.log('Starting transition '+debugNumber)
         let mouseSpeed = 10
         let iterations = Math.max(Math.abs(Math.round(((x-mouseX)+(y-mouseY))/mouseSpeed)), 20)
-        console.log((x-mouseX), (y-mouseY), mouseSpeed)
-        console.log(iterations)
+        // console.log((x-mouseX), (y-mouseY), mouseSpeed)
+        // console.log(iterations)
 
         for(let i = 0;i<iterations;i++){
             mouseX += (x-mouseX)/mouseSpeed
@@ -33,13 +46,9 @@
 
 
         updateMouse()
-        console.log('Ending transition '+debugNumber)
+        // console.log('Ending transition '+debugNumber)
     }
     
-
-
-    const stepEl = q("#step")
-    stepEl.textContent = "Step 1: Type in your question."
 
     const searchRect = searchEl.getBoundingClientRect()
     await transitionPosition(searchRect.left+(searchRect.width/2)-20, searchRect.top+20)

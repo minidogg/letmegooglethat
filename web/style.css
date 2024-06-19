@@ -76,7 +76,7 @@ button:hover, button:focus{
 #step{
     background-color: #4fe9f9;
     color:#44446d;
-    width:10vw;
+    width:20vw;
     height:10vh;
     padding:20px;
     display:block;
@@ -90,6 +90,11 @@ button:hover, button:focus{
     top:0;
     left:0;
     z-index: 100;
+}
+
+a{
+    color:blue;
+    text-decoration: none;
 }
 
 /* Mobile Styles */
