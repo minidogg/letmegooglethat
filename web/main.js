@@ -11,7 +11,7 @@
     if(typeof(searchText)!=="string"){
         stepEl.innerHTML = "Type in the question. Then copy the link from the button below <br><button>Copy URL</button>"
         stepEl.q("button").onclick=()=>{
-            let url = window.location.host+"?q="+encodeURIComponent(searchEl.value)
+            let url = window.location.protocol+"//"+window.location.host+"?q="+encodeURIComponent(searchEl.value)
             window.navigator.clipboard.writeText(url)
         }
         return
